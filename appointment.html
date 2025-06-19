@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Book Appointment - Amor Hospital</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    #confirmationBox {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid green;
+      background-color: #e6ffe6;
+      color: green;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Book an Appointment</h1>
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <main>
+    <form id="appointmentForm">
+      <label>First Name:
+        <input type="text" name="firstName" required />
+      </label><br/><br/>
+
+      <label>Mobile:
+        <input type="tel" name="mobile" required />
+      </label><br/><br/>
+
+      <label>Patient Type:
+        <select name="patientType" required>
+          <option value="">Select</option>
+          <option value="New Patient">New Patient</option>
+          <option value="Old Patient">Old Patient</option>
+        </select>
+      </label><br/><br/>
+
+      <label>Message:
+        <textarea name="message"></textarea>
+      </label><br/><br/>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="confirmationBox">
+      Appointment booked! We will get back to you shortly.
+    </div>
+  </main>
+
+  <script>
+    document.getElementById("appointmentForm").addEventListener("submit", function(e) {
+      e.preventDefault(); 
+
+      
+      document.getElementById("appointmentForm").style.display = "none";
+      document.getElementById("confirmationBox").style.display = "block";
+    });
+  </script>
+</body>
+</html>
