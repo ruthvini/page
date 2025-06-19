@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <title>Book Appointment - Amor Hospital</title>
   <link rel="stylesheet" href="style.css" />
+  
+  <!-- Plausible Analytics -->
+  <script defer data-domain="ruthvini.github.io/page" src="https://plausible.io/js/script.js"></script>
+
   <style>
     #confirmationBox {
       display: none;
@@ -59,7 +63,11 @@
     document.getElementById("appointmentForm").addEventListener("submit", function(e) {
       e.preventDefault(); 
 
-      
+      // Optional: trigger Plausible custom event
+      if (window.plausible) {
+        plausible('AppointmentFormSubmitted');
+      }
+
       document.getElementById("appointmentForm").style.display = "none";
       document.getElementById("confirmationBox").style.display = "block";
     });
